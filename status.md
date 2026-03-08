@@ -3,14 +3,14 @@
 ## Current State
 
 - Chain status: active
-- Current phase: 系统化成长与持续运转机制设计
-- Current primary objective: 建立 main 主链条、priority queue、运行模板与恢复机制
-- Current main task: 定义持续运行系统的核心状态结构与优先级机制
-- Current follow-up: 将新 Todo 统一吸纳进 priority queue，并定义调度选择规则
+- Current phase: 目标梳理与优先级系统建设
+- Current primary objective: 建立 Allen 的自我迭代系统，并让持续运行系统开始服务于真实项目探索
+- Current main task: 构建可指导后续工作的 priority queue
+- Current follow-up: 依据最新共识重写 priority queue，使其同时承载 Allen 目标、公司目标、每日固定工作与项目方向脑暴池
 - Follow-up mode: direct
-- Chain count: 1 / 10
-- Last completed unit: 梳理持续运行系统架构并识别优化点
-- Last result: 已明确当前架构、恢复层、follow-up cron、hourly recovery cron 与主要优化点
+- Chain count: 2 / 10
+- Last completed unit: 完成主链状态、priority queue 与模板系统的第一版搭建
+- Last result: 已具备 status / queue / templates / runbook 等骨架，现进入目标与方向整理阶段
 - Recovery status: not-needed
 
 ## Dispatch Snapshot
