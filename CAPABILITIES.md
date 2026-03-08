@@ -125,3 +125,19 @@
   - `openclaw` managed browser 已成功启动，状态从 `running: false` 变为 `running: true`，且可实际打开页面。
   - `chrome` relay profile 当前仍为 `running: false`，说明它没有在当前环境中接通扩展 relay 链路。
   - 结论：浏览器“可启动性”已被验证，但当前可用的是 **managed browser 路径**，不是 `chrome` relay 路径。
+
+### B2 / B3 / B4. 打开页面 / 页面读取 / 页面操作能力
+
+- Status: PASS
+- Date: 2026-03-08
+- Verified actions:
+  - 使用 managed browser 打开 `https://example.com`
+  - 对当前页面执行 `snapshot`
+  - 从页面结构中识别标题、正文与链接
+  - 点击页面中的 `Learn more` 链接（ref `e6`）
+  - 再次执行 `snapshot`，确认页面跳转后的结构变化
+- Notes:
+  - B2（打开页面）已通过：页面可真实打开，而非仅返回命令成功。
+  - B3（页面读取）已通过：可读取页面标题 `Example Domain`、正文说明与链接目标。
+  - B4（页面操作）已通过：可基于页面 ref 执行点击，并在后续快照中验证页面已变化到 IANA 的 `Example Domains` 页面。
+  - 结论：当前 managed browser 已具备基础的“打开 → 读取 → 操作 → 验证”闭环能力。
