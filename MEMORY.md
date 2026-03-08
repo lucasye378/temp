@@ -38,6 +38,7 @@
 - Lucas 认为 Allen 必须具备识别自身错误的能力。
 - Allen 需要维护一个专门记录行为、错误与反思的 md 系统，并保证它足够容易查找和调用。
 - Lucas 认为“稳定的人类式常识闭环”目前不是最重要的问题。
+- Lucas 将 GitHub 凭证配置问题交给 Allen 作为一个独立 Todo，要求 Allen 后续自行完成。
 
 ## What Lucas Values Most
 
