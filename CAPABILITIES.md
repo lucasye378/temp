@@ -30,3 +30,19 @@
   - 我不仅能访问工作区，也能访问 Home 下多个常用位置。
   - 当前已验证可在 `~/.openclaw/` 下创建和读取文件。
   - `/Applications/Google Chrome.app` 可见；部分预期路径（如 Brave、iTerm、Utilities/Terminal.app）本次路径检查未命中，后续若需要可进一步定位。
+
+### A2. 命令执行能力
+
+- Status: PASS
+- Date: 2026-03-08
+- Verified actions:
+  - 运行基础 shell 命令（`pwd`, `whoami`, `uname`）
+  - 运行组合命令并做条件判断
+  - 在指定目录执行命令（`~/.openclaw`）
+  - 基于命令输出决定下一步动作并读取目标文件
+  - 处理一次轻量失败并读取错误信息
+  - 运行简单 pipeline
+- Notes:
+  - 可稳定执行基础命令、组合命令与 pipeline。
+  - 可根据输出继续推进下一步，而不是只返回原始结果。
+  - 对简单的“文件不存在”类错误可正确识别与归因。
