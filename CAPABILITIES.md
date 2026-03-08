@@ -93,3 +93,19 @@
   - 本地 git 工作流可用：状态检查、身份配置、add、commit 都已成功。
   - 远程仓库地址可设置，但 push 失败，报错为：`fatal: could not read Username for 'https://github.com': Device not configured`。
   - 结论：当前缺的不是 git 能力本身，而是 GitHub 认证/凭证尚未配置到这个环境里。
+
+### A6. 故障排查能力（Terminal 环境）
+
+- Status: PASS
+- Date: 2026-03-08
+- Verified actions:
+  - 识别路径错误（目标文件不存在）
+  - 识别命令用法错误（`grep` 缺少参数）
+  - 区分权限问题与可读性问题（检查 `~/.openclaw/openclaw.json`）
+  - 识别命令缺失 / 依赖不存在（`command not found`）
+  - 区分“配置文件缺失”与“配置目录存在”
+  - 在诊断后做一次最小修正验证（修正错误搜索词）
+- Notes:
+  - 能基于错误输出将问题归类为：路径问题、命令使用问题、命令缺失问题、权限/可读性问题、配置存在性问题。
+  - 能做最小化排查，不需要一开始就做大动作修改。
+  - 当前已表现出“先定位，再修正”的基本故障排查习惯。
