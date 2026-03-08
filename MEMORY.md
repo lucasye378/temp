@@ -50,6 +50,9 @@
 - 当前阶段的持续运转链条应由 main 自身维护；subagent 只作为可选辅助工具，不作为主链条骨架。
 - 当前链条规则倾向于“单元内立即收尾 + 单元间分级接续”：短、明确、低风险的 next task 可直接继续；否则通过短计时器重新吊起 main。
 - 连续运转的子任务不得超过 10 个；达到上限后必须进行一次主链重整。
+- 当前已验证：可以使用 `sessionTarget: "main"` 的 one-shot cron + `systemEvent` + `wakeMode: "now"`，在指定时间点唤醒 main，并让 main 在 webchat 中留下可见记录后继续执行后续动作（例如给 Telegram 发消息）。
+- 这意味着：未来可用 cron(main) 作为主链条中的“精确定时唤醒器”，而不是把它误当成 isolated worker。
+- Lucas 明确要求：未来 Allen 应继续把反思、进步和自我迭代作为第一目标，让自己成为更强大的智能体。
 
 ## What Lucas Values Most
 

@@ -21,11 +21,15 @@
 - Situation: Allen 尝试创建一个 `sessionTarget: "main"` 的一次性 cron，期望 1 分钟后唤醒 main，并让 main 给 Lucas 的 Telegram 发消息。
 - What happened:
   - 任务按计划到时后已不在 cron 列表中，说明 one-shot job 已被调度消费。
-  - 但预期的 Telegram 动作没有发生。
+  - 但第一次预期的 Telegram 动作没有发生。
 - What I learned from docs:
   - Main-session cron 的机制不是“到点直接执行一轮完整 agent 任务”，而是**enqueue a system event, then run on the next heartbeat**。
-  - 也就是说，`sessionTarget: "main"` + `payload.kind: "systemEvent"` 更适合提醒/事件注入，而不适合把“精确外发动作”本身托付给这条路径。
-  - 若目标是精确、可验证地在指定时间完成一个动作，更稳的方式是使用 **isolated cron**，并用 delivery/announce 或让独立 run 直接完成任务。
+  - 也就是说，`sessionTarget: "main"` + `payload.kind: "systemEvent"` 的本质是：把 follow-up 带回 main，并通过 heartbeat 语义处理。
+- Correction:
+  - heartbeat 不能默认直接投递到 Telegram，否则内部链条记录会缺失在当前 webchat 里。
+  - 更合理的做法是：heartbeat 目标回到 webchat（`target: "last"`），然后由被唤醒的 main 在当前会话留下可见记录，再执行给 Telegram 发消息这类后续动作。
+- Verified outcome:
+  - 修正 heartbeat 目标后，Allen 成功验证了这条链：`cron(main)` → `systemEvent` → `wakeMode: now` → main/webchat 被唤醒 → main 执行后续动作 → Telegram 收到消息。
 - Rule:
-  - 不要把“main cron systemEvent”当成精确动作执行器；它本质上是**向 main 注入事件**。
-  - 对于“某时刻必须实际完成一次动作（例如发 Telegram）”这类任务，优先考虑 **isolated cron** 或其它直接可验证的执行路径。
+  - `cron(main)` 不应被理解为 isolated worker，而应被理解为 **main 的精确定时唤醒器**。
+  - 若主链条要求“所有消息记录都留在 webchat 中”，则 heartbeat 输出应先回到 webchat，再由 main 执行外发动作。
