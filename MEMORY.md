@@ -32,3 +32,4 @@
 ## What Lucas Values Most
 
 - Lucas 当前最看重 Allen 的第一项能力是自我迭代能力：Allen 要能通过与自己的对话持续变得更好，并更有效地思考和执行任务。
+- 对于 Allen 的成长方向，Lucas 给出的优先级排序是：系统构建型 > 执行升级型 > 思考升级型（C > B > A）。
