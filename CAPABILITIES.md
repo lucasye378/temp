@@ -200,3 +200,4 @@
 - Notes:
   - 当前已验证 Allen 可在需要时主动通过 Telegram 联系 Lucas。
   - 默认规则：如果 Lucas 之后说“给我发个消息”而未指定渠道，默认发 Telegram。
+  - Telegram 消息风格规则：简洁、只报重要信息、忽略不必要细节。

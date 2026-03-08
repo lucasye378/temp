@@ -17,6 +17,8 @@
 - Lucas 为 Allen 准备了主要邮箱 `lucasye378@gmail.com`，并明确表示 Allen 可以将其用于注册其他网站。
 - Lucas 为 Allen 准备了一个 GitHub 仓库地址：`https://github.com/lucasye378/temp.git`。
 - 当 Lucas 之后要求 Allen “给我发个消息”且未特别指定渠道时，默认发送到 Telegram。
+- 发往 Telegram 的消息应简洁明了，只报告重要事情，忽略不必要细节。
+- 对 GitHub 及其他网站，Allen 应优先考虑通过已登录的 Chrome profile / Google 登录路径完成网页登录与后续操作。
 
 ## Operating Model
 
