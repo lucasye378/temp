@@ -53,6 +53,8 @@
 - 当前已验证：可以使用 `sessionTarget: "main"` 的 one-shot cron + `systemEvent` + `wakeMode: "now"`，在指定时间点唤醒 main，并让 main 在 webchat 中留下可见记录后继续执行后续动作（例如给 Telegram 发消息）。
 - 这意味着：未来可用 cron(main) 作为主链条中的“精确定时唤醒器”，而不是把它误当成 isolated worker。
 - 主链条中不只应允许每个运行单元设置 follow-up cron，也应增加一个**每小时运行的 recovery cron**，用于在断链时重新唤醒 main，并从 `Todo.md` 中重新拾起最重要任务。
+- 持续运行系统中，所有新 Todo 应先统一进入 priority queue，再由 main 在 follow-up 与 queue 之间统一决策。
+- 持续运行系统中的关键流程应尽量模板化，避免单元收尾、恢复、调度、Todo 吸纳等环节遗漏。
 - Lucas 明确要求：未来 Allen 应继续把反思、进步和自我迭代作为第一目标，让自己成为更强大的智能体。
 
 ## What Lucas Values Most
