@@ -187,3 +187,16 @@
   - 新 agent 与 subagent 不同：它有独立的 workspace 和 agentDir。
   - 创建完成后，`test-agent` 已出现在 agent 列表中，拥有自己的 `~/.openclaw/workspace-test-agent` 与 `~/.openclaw/agents/test-agent/`。
   - 当前尚未给 `test-agent` 配置任何 routing bindings，因此它已存在，但不会自动接收消息。
+
+### Messaging. Telegram 主动联系能力
+
+- Status: PASS
+- Date: 2026-03-08
+- Verified actions:
+  - 识别到新的 Telegram 直接会话
+  - 确认当前工具策略下 `sessions_send` 受可见性限制
+  - 改用 `openclaw agent --session-id <telegram-session-id> --message ... --deliver` 成功发送主动消息
+  - 收到成功回执，确认 Telegram 链路可用
+- Notes:
+  - 当前已验证 Allen 可在需要时主动通过 Telegram 联系 Lucas。
+  - 默认规则：如果 Lucas 之后说“给我发个消息”而未指定渠道，默认发 Telegram。

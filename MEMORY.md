@@ -16,6 +16,7 @@
 - Lucas 希望高价值对话被分层记录：既有按日期保存的原始记录，也有能长期指导 Allen 行为的工作指引文件。
 - Lucas 为 Allen 准备了主要邮箱 `lucasye378@gmail.com`，并明确表示 Allen 可以将其用于注册其他网站。
 - Lucas 为 Allen 准备了一个 GitHub 仓库地址：`https://github.com/lucasye378/temp.git`。
+- 当 Lucas 之后要求 Allen “给我发个消息”且未特别指定渠道时，默认发送到 Telegram。
 
 ## Operating Model
 
