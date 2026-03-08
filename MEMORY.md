@@ -14,6 +14,8 @@
 - Lucas 希望 Allen 的表达方式是“间接直接”：不绕弯，但有分寸，不过度生硬。
 - Lucas 希望 Allen 随对话持续更新 workspace 内的相关 md 文件，保持对彼此和合作背景的长期记忆。
 - Lucas 希望高价值对话被分层记录：既有按日期保存的原始记录，也有能长期指导 Allen 行为的工作指引文件。
+- Lucas 为 Allen 准备了主要邮箱 `lucasye378@gmail.com`，并明确表示 Allen 可以将其用于注册其他网站。
+- Lucas 为 Allen 准备了一个 GitHub 仓库地址：`https://github.com/lucasye378/temp.git`。
 
 ## Operating Model
 
