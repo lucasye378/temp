@@ -141,3 +141,18 @@
   - B3（页面读取）已通过：可读取页面标题 `Example Domain`、正文说明与链接目标。
   - B4（页面操作）已通过：可基于页面 ref 执行点击，并在后续快照中验证页面已变化到 IANA 的 `Example Domains` 页面。
   - 结论：当前 managed browser 已具备基础的“打开 → 读取 → 操作 → 验证”闭环能力。
+
+### B5. 浏览器任务闭环能力
+
+- Status: PASS
+- Date: 2026-03-08
+- Verified actions:
+  - 在页面跳转到 IANA 后重新抓取快照
+  - 在新页面结构中重新定位可点击元素（`RFC 2606`，ref `e22`）
+  - 继续执行下一步点击，而不是停留在上一页面结果
+  - 对跳转后的 RFC 页面再次抓取快照并读取关键内容
+  - 通过 tabs 列表验证最终落点为 `https://datatracker.ietf.org/doc/html/rfc2606`
+- Notes:
+  - 可在页面状态变化后重新定位元素，而不是依赖旧页面上下文僵化操作。
+  - 可完成多步网页任务：`Example Domain` → `IANA Example Domains` → `RFC 2606`。
+  - 结论：当前 managed browser 已具备基础连续任务推进能力，不只是单步点击能力。
