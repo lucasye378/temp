@@ -173,3 +173,17 @@
   - 可在页面状态变化后重新定位元素，而不是依赖旧页面上下文僵化操作。
   - 可完成多步网页任务：`Example Domain` → `IANA Example Domains` → `RFC 2606`。
   - 结论：当前 managed browser 已具备基础连续任务推进能力，不只是单步点击能力。
+
+### D1b. 新独立 Agent 创建能力
+
+- Status: PASS
+- Date: 2026-03-08
+- Verified actions:
+  - 阅读 `openclaw agents add --help` 以确认非交互创建参数
+  - 使用 `openclaw agents add test-agent --non-interactive --workspace /Users/lucas/.openclaw/workspace-test-agent --json` 创建新 agent
+  - 用 `openclaw agents list --bindings` 验证新 agent 已注册
+  - 检查新 workspace 与新 agentDir 的初始化结果
+- Notes:
+  - 新 agent 与 subagent 不同：它有独立的 workspace 和 agentDir。
+  - 创建完成后，`test-agent` 已出现在 agent 列表中，拥有自己的 `~/.openclaw/workspace-test-agent` 与 `~/.openclaw/agents/test-agent/`。
+  - 当前尚未给 `test-agent` 配置任何 routing bindings，因此它已存在，但不会自动接收消息。
