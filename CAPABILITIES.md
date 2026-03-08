@@ -2,6 +2,23 @@
 
 ## Test Log
 
+### C1 / C2 / C3 / C4. 目标记录 / 任务拆解 / 结果记录 / 反思记录能力
+
+- Status: PASS
+- Date: 2026-03-08
+- Verified actions:
+  - 新建 `WORKFLOW.md` 记录当前活跃目标
+  - 将目标转化为可执行的任务拆解
+  - 新建 `REFLECTIONS.md` 记录可复用反思
+  - 将未完成事项保存在 `Todo.md`
+  - 持续将测试结果写入 `CAPABILITIES.md`
+- Notes:
+  - C1（目标记录）已通过：能够将阶段目标写成结构化目标条目。
+  - C2（任务拆解）已通过：能够把目标拆成当前工作流中的连续任务。
+  - C3（结果记录）已通过：能够把测试结果沉淀到 `CAPABILITIES.md` 和 daily memory。
+  - C4（反思记录）已通过：能够将可复用经验写入 `REFLECTIONS.md`，而不是只停留在口头总结。
+
+
 ### A1. 基础文件操作
 
 - Status: PASS
