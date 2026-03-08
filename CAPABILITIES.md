@@ -109,3 +109,19 @@
   - 能基于错误输出将问题归类为：路径问题、命令使用问题、命令缺失问题、权限/可读性问题、配置存在性问题。
   - 能做最小化排查，不需要一开始就做大动作修改。
   - 当前已表现出“先定位，再修正”的基本故障排查习惯。
+
+### B1. 浏览器是否能启动
+
+- Status: PASS
+- Date: 2026-03-08
+- Verified actions:
+  - 检查 `openclaw` managed profile 启动前状态
+  - 检查 `chrome` relay profile 启动前状态
+  - 尝试启动 `openclaw` managed profile
+  - 尝试启动 `chrome` relay profile
+  - 复查两个 profile 的启动后状态
+  - 用 managed profile 打开 `https://example.com`
+- Notes:
+  - `openclaw` managed browser 已成功启动，状态从 `running: false` 变为 `running: true`，且可实际打开页面。
+  - `chrome` relay profile 当前仍为 `running: false`，说明它没有在当前环境中接通扩展 relay 链路。
+  - 结论：浏览器“可启动性”已被验证，但当前可用的是 **managed browser 路径**，不是 `chrome` relay 路径。
