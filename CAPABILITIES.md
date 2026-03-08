@@ -76,3 +76,20 @@
   - 交互式会话链路可用，能够完成“启动 → 输入 → 提交 → 输出 → 退出”的基本闭环。
   - 使用 bracketed paste 时，输出中会出现控制序列痕迹；在需要更干净交互时，应优先使用 `send-keys` + `submit`。
   - 可正确用 `Ctrl-C` 收尾，避免交互式程序悬挂。
+
+### A5. Git 工作流能力
+
+- Status: PARTIAL PASS
+- Date: 2026-03-08
+- Verified actions:
+  - 查看仓库状态
+  - 检查并设置本地 git 身份（`Allen <lucasye378@gmail.com>`）
+  - 创建测试文件 `GIT-TEST.md`
+  - `git add` 指定文件
+  - 完成本地 commit
+  - 添加远程 `origin`
+  - 对 GitHub 仓库发起真实 `git push`
+- Notes:
+  - 本地 git 工作流可用：状态检查、身份配置、add、commit 都已成功。
+  - 远程仓库地址可设置，但 push 失败，报错为：`fatal: could not read Username for 'https://github.com': Device not configured`。
+  - 结论：当前缺的不是 git 能力本身，而是 GitHub 认证/凭证尚未配置到这个环境里。
