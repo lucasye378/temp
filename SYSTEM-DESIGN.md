@@ -96,10 +96,34 @@ subagent 可以建议 follow-up，但不应侵蚀 main 的最终决策权。
 - main 吊起下一个任务，形成持续运行链条
 - subagent 仅作为可选辅助工具，而不是主干调度结构
 
+## Cron-driven continuation layer
+
+当前主链条建议增加两层 cron：
+
+### 1. Follow-up cron
+
+- 由单个运行单元在结束时创建
+- 用于在短时间后把 follow-up 精确带回 main
+- 作用：维持主链条的连续推进
+
+### 2. Hourly recovery cron
+
+- 每小时运行一次
+- 作用不是推进某个具体子任务，而是做“断链恢复”
+- 当主链条由于异常、遗漏、判断中断等原因断开时，hourly recovery cron 应负责重新唤醒 main，并让 main 从 `Todo.md` / 当前主线里重新拾起最重要的任务
+
+这个 hourly recovery cron 的定位是：
+- 保底机制
+- 恢复机制
+- 防断链机制
+
+而不是替代主链条本身。
+
 ## Implementation order
 
 1. 定义 main 主链条协议 v1
 2. 定义运行单元收尾协议 v1
 3. 定义 Todo 吸纳规则 v1
 4. 定义 follow-up 与 chain 生成规则 v1
-5. 再视情况把 subagent 作为局部执行辅助接入
+5. 定义 hourly recovery cron 协议 v1
+6. 再视情况把 subagent 作为局部执行辅助接入
