@@ -33,3 +33,17 @@
 - Rule:
   - `cron(main)` 不应被理解为 isolated worker，而应被理解为 **main 的精确定时唤醒器**。
   - 若主链条要求“所有消息记录都留在 webchat 中”，则 heartbeat 输出应先回到 webchat，再由 main 执行外发动作。
+
+### 2026-03-08 — Queue cleanup lesson
+
+- Situation: 初版 priority queue 已经能够收纳很多目标，但仍然更像想法仓库，而不够像执行系统。
+- What changed:
+  - 为 queue 新增了“执行闸门”和状态分流：`active` / `ready` / `needs-clarification` / `blocked` / `incubating`。
+  - 明确规定主链任意时刻只允许 1 个 active 主任务。
+  - 对 10 个现有条目进行了第一次人工分流。
+- What I learned:
+  - 优先级本身不够，必须叠加“可执行性”判断，否则队列会越来越大，但无法压缩出真正当前该做的事。
+  - 不是所有高价值目标都该立刻启动；一些应该等待澄清，一些应该等待真实样本，一些只应先保温。
+- Rule:
+  - 新目标先入队，再过执行闸门，再决定是否进入主链。
+  - 主链上任何时刻只保留 1 个 active 项，其余保持在 queue 中，避免重新散掉。

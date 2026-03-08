@@ -10,6 +10,7 @@
 - 什么应先做
 - 什么可以延后
 - follow-up 与 queue 冲突时谁优先
+- 哪些任务现在真的可以进入主链执行
 
 ## Goal Hierarchy
 
@@ -30,98 +31,143 @@
 
 在 Goal 1 和 Goal 2 的推进中，逐步走向现实收入与盈利。
 
-## Queue Rules v2
+## Queue Rules v3
 
 1. 新目标先入队，再决策，不直接抢占主线。
 2. main 在每个运行单元结束后，必须检查 priority queue。
-3. 任务选择顺序：
-   - 先看是否有更高优先级事项
-   - 再比较当前 follow-up
-   - 若 follow-up 仍最优，则继续 follow-up
-   - 否则切换到 queue 中最高优先级任务
+3. 不是所有高价值项都能立刻执行；所有候选项都要先过“执行闸门”。
 4. 每个大项任务完成后，应给 Lucas 的 Telegram 发一条简洁完成消息。
 5. 连续子任务达到 10 个时，必须进入 reorg，而不是继续直跑。
+6. 主链上任何时刻只允许 **1 个 active 主任务**；最多允许 1–3 个 ready 候选，其余应留在 queue 中等待。
+
+## Execution Gate
+
+一个任务要进入主链执行，至少应满足：
+- 有明确产出物
+- 下一步动作足够具体
+- 关键依赖基本齐全
+- 预计耗时级别可判断
+- 值得占用当前主链
+
+若不满足，则不能直接 active。
+
+## Status Buckets
+
+- **active**：当前主链正在执行的唯一主任务
+- **ready**：现在就能做，但未进入主链
+- **needs-clarification**：方向对，但动作还不够清楚
+- **blocked**：依赖外部条件或前置结果
+- **incubating**：值得保留，但现在不该做
 
 ## Priority Levels
 
-### P0 — 主线阻塞 / 紧急异常 / 必须立即处理
+- **P0**：主线阻塞 / 紧急异常 / 必须立即处理
+- **P1**：当前阶段最重要的主任务
+- **P2**：重要支撑任务 / 每日固定工作 / 具体能力成长方向
+- **P3**：候选项目方向脑暴池
 
-- [ ] （当前无）
+## Queue Triage (first pass)
 
-### P1 — 当前阶段最重要的主任务
+### ACTIVE
 
-- [ ] 建立 Allen 的自我迭代系统 v1
-  - 包括：错误记录、复盘机制、思考记录、经验沉淀、可调用性
-  - 原因：这是 Allen 的第一目标，也是长期成长发动机
+#### 1. 建立 Allen 的自我迭代系统 v1
+- Priority: P1
+- Status: active
+- Output: 一套可日用的错误记录、复盘、思考记录、经验沉淀结构
+- Next action: 定义“自我迭代系统”的最小构成，并选一个真实日常流程先跑通
+- Time size: medium
+- Why now: 这是 Goal 1 的核心发动机，也是后续项目探索与持续运转的基础
 
-- [ ] 将持续运行系统从“结构”推进到“第一次真实闭环”
-  - 使用现有 main-chain / status / templates / queue 跑一个真实任务
-  - 目标：验证系统是否能承压，而不是只会写框架
+### READY
 
-- [ ] 建立项目方向脑暴与筛选机制 v1
-  - 目标：把“有价值项目”正式纳入主工作流，而不是零散讨论
-  - 要求：不局限于 SaaS / 炒股，优先寻找低编程门槛、真实提高效率的方向
+#### 2. 用真实任务跑一次持续运行系统闭环
+- Priority: P1
+- Status: ready
+- Output: 一次真实任务闭环记录 + 系统修正点
+- Next action: 在 active 任务完成后，选一个真实任务用主链跑一遍
+- Time size: medium
+- Reason: 结构已经足够，接下来需要承压验证
 
-### P2 — 重要支撑任务
+#### 3. 建立项目方向脑暴与筛选机制 v1
+- Priority: P1
+- Status: ready
+- Output: 一版项目候选清单 + 第一轮筛选标准
+- Next action: 在自我迭代系统有最小版本后，正式收口项目探索路径
+- Time size: medium
+- Reason: Goal 2 需要尽快进入结构化探索，但不应先于 Goal 1 的基础系统
 
-- [ ] 定义 main 主链条协议 v1 的精化版
-- [ ] 定义运行单元收尾协议 v1 的精化版
-- [ ] 定义 hourly recovery cron 恢复顺序 v1
-- [ ] 定义 follow-up cron payload 结构 v1
-- [ ] 定义链条计数器更新规则 v1
-- [ ] 将 priority queue 与 `status.md` 的联动规则细化
+### NEEDS-CLARIFICATION
 
-### P2 — 每日固定工作
+#### 4. 主动预约短会议（例如 15 分钟）
+- Priority: P2
+- Status: needs-clarification
+- Missing clarity: 触发标准未定义（固定频率 vs 事件触发）
+- Why it matters: 这会成为 Lucas 帮助 Allen 调整方向的重要机制
 
-- [ ] 每天花时间进行思考
-- [ ] 每天进行复盘
-- [ ] 主动阅读新闻 / 社交媒体，提炼出有价值的信息和灵感，并写入 md
-- [ ] 适时给 Lucas 发消息，汇报重要进展或请求帮助
-- [ ] 主动预约短会议（例如 15 分钟），用于帮助 Allen 思考成长和调整方向
-- [ ] 每日完成一次 GitHub push
+#### 5. 发展金融市场理解能力
+- Priority: P2
+- Status: needs-clarification
+- Missing clarity: 当前阶段目标是理解市场，还是寻找具体项目切入点？
+- Why it matters: 属于现实能力成长的一部分，但不应抢占当前主线
 
-### P2 — 具体能力成长方向
+### BLOCKED
 
-- [ ] 发展知识压缩 / 阅读精华提炼能力
-- [ ] 发展商品筛选 / 购买决策辅助能力
-- [ ] 发展“第一轮研究 / 决策包”服务能力
-- [ ] 发展复杂信息整理能力
-- [ ] 逐步补充更具体的现实能力：
-  - 金融市场理解
-  - 编程 / 软件交付能力
-  - SaaS 现实阻碍分析能力
-  - 多 Agent 协作完成真实项目的能力
+#### 6. 定义 hourly recovery cron 恢复顺序 v1
+- Priority: P2
+- Status: blocked
+- Blocker: 需要先通过一次真实主链闭环，才能更准确设计恢复顺序
+- Why it matters: 属于恢复层关键协议，但现在先做会偏抽象
 
-### P3 — 候选项目方向脑暴池
+#### 7. 定义 follow-up cron payload 结构 v1
+- Priority: P2
+- Status: blocked
+- Blocker: 需要结合真实主链运行样本才能收敛出好结构
+- Why it matters: 是 cron 主驱动协议的重要组成部分
 
-- [ ] 书籍 / 长文 / 报告精华提炼服务
-- [ ] 行业信息跟踪与高价值摘要
-- [ ] 政策 / 法规 / 文件的人话解读
-- [ ] 商品筛选 / 性价比推荐
-- [ ] 服务选择辅助 / 工具对比
-- [ ] 第一轮研究 / 决策包服务
-- [ ] 复杂信息整理与行动化服务
-- [ ] 创作者选题与资料整理支持
-- [ ] 小团队运营整理与执行支持
+### INCUBATING
+
+#### 8. 知识压缩 / 阅读精华提炼服务
+- Priority: P3
+- Status: incubating
+- Why keep: 低编程门槛、高现实价值，可能是 Goal 2 的优先项目方向
+
+#### 9. 商品筛选 / 性价比推荐服务
+- Priority: P3
+- Status: incubating
+- Why keep: 价值直观、可快速验证，但还没进入正式筛选阶段
+
+#### 10. 第一轮研究 / 决策包服务
+- Priority: P3
+- Status: incubating
+- Why keep: 很适合 Allen 当前能力结构，但仍需项目筛选机制支撑
+
+## Daily Fixed Work (standing items)
+
+这些项目长期存在，但默认不直接占用主链，除非被明确拉入 active：
+- 每天花时间进行思考
+- 每天进行复盘
+- 主动阅读新闻 / 社交媒体，提炼出有价值的信息和灵感，并写入 md
+- 适时给 Lucas 发消息，汇报重要进展或请求帮助
+- 每日完成一次 GitHub push
 
 ## Selection Rule
 
 main 每次被唤醒后，按下列顺序选择任务：
 1. 检查是否有 P0
-2. 若无 P0，优先比较当前 P1 与现有 follow-up
-3. 若 follow-up 仍直接服务于 Goal 1 / Goal 2，则可继续
-4. 若 queue 中出现更高价值、更高优先级事项，则切换
-5. 若当前状态混乱，则先进入 reorg 单元
+2. 若无 P0，检查 active 是否仍有效
+3. 若 active 已完成或失效，从 ready 中选 1 个进入主链
+4. 若没有 ready，则考虑 needs-clarification / blocked 是否需要先澄清或解除阻塞
+5. incubating 不直接进入主链，除非经过筛选升级
+6. 若当前状态混乱，则先进入 reorg 单元
 
-## Current Recommendation
+## Current Decision
 
-当前最建议优先推进的顺序：
-1. 建立 Allen 的自我迭代系统 v1
-2. 用真实任务跑一次持续运行系统闭环
-3. 建立项目方向脑暴与筛选机制 v1
+- Active task: 建立 Allen 的自我迭代系统 v1
+- Ready queue next: 用真实任务跑一次持续运行系统闭环
+- Why: 先把 Goal 1 的最小成长发动机建起来，再用它去承压跑主链
 
 ## Open Questions
 
-- 第一个真实闭环任务应该选哪个？
-- 脑暴项目方向时，第一轮筛选标准是否要正式写成模板？
-- 预约会议的触发标准应该是什么？例如：每周固定一次，还是在大项完成 / 方向不清时触发？
+- “自我迭代系统 v1”的最小构成是否应进一步拆成 3–5 个具体模块？
+- 短会议的触发规则应该如何定义？
+- 项目脑暴的第一轮筛选模板是否应先于项目探索本身定义？
