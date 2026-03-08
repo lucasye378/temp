@@ -2,10 +2,17 @@
 
 ## Open Items
 
-- [ ] 配置 Allen 的 GitHub 凭证，使当前工作区可以成功向 `https://github.com/lucasye378/temp.git` 执行远程 push。
-  - 背景：A5 测试中，本地 git 工作流已通过，但 `git push -u origin main` 失败。
-  - 错误：`fatal: could not read Username for 'https://github.com': Device not configured`
-  - 目标：将 A5 从 PARTIAL PASS 提升到 PASS。
-  - 要求：由 Allen 自行完成配置，作为后续测试任务的一部分。
-  - 2026-03-08 综合测试补充：已再次确认远程仓库存在且为空，但当前环境仍缺可用 GitHub 写入凭证；已通过 Telegram 向 Lucas 汇报并请求下一步指示。
-  - SSH 路径当前进展：本机已生成 `~/.ssh/id_ed25519_allen_github`，已写入 `~/.ssh/config`，remote 已切换为 `git@github.com:lucasye378/temp.git`；当前仅缺 GitHub 账户侧添加公钥。
+- [ ] 定义 `main` 主链条协议 v1。
+  - 目标：明确 main 如何维护主目标、当前主线、运行单元与接续关系。
+
+- [ ] 定义运行单元收尾协议 v1。
+  - 目标：明确每个运行单元结束时必须完成的记录、Todo 吸纳、follow-up 和 chain 动作。
+
+- [ ] 定义 Todo 吸纳规则 v1。
+  - 目标：明确在执行与思考中发现哪些新目标必须写入 Todo，以及如何分类。
+
+- [ ] 定义 follow-up 与 chain 生成规则 v1。
+  - 目标：明确每个运行单元结束后如何选择“下一个主任务”，以及何时立即吊起下一任务。
+
+- [ ] 每日完成一次 GitHub push。
+  - 目标：将 GitHub 维持为外部同步与备份工具，而不是当前阶段的主任务。
