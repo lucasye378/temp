@@ -79,17 +79,27 @@ subagent 可以建议 follow-up，但不应侵蚀 main 的最终决策权。
 
 并行执行可能带来冲突、重复、依赖不同步等问题。
 
+## Reconsideration
+
+经过进一步推敲，当前阶段**不适合**以 agent/subagent 作为持续运转链条的主干。
+原因是：
+- subagent 默认上下文不如 main 完整
+- 某些高价值任务（尤其是深思考、主线判断、长期上下文整合）更适合 main 直接完成
+- 如果把链条主干建立在 subagent 生命周期上，会让关键任务质量打折，并把系统复杂度提前抬高
+
 ## Current recommendation
 
-当前阶段不应直接上复杂状态机，而应先实现“轻量中央调度版”：
-- 少量并行
-- 标准化汇报
-- main 统一决策
-- 主链推进 + Todo 吸纳
+当前阶段应回到 **main 自身维护主链条** 的方法：
+- main 维护主目标
+- main 维护 Todo 吸纳
+- main 在每个运行单元结束后生成 follow-up
+- main 吊起下一个任务，形成持续运行链条
+- subagent 仅作为可选辅助工具，而不是主干调度结构
 
 ## Implementation order
 
-1. 定义 subagent 汇报协议 v1
-2. 定义 main 调度协议 v1
-3. 明确可并行任务类型与边界
-4. 再逐步演进到更复杂的持续运行系统
+1. 定义 main 主链条协议 v1
+2. 定义运行单元收尾协议 v1
+3. 定义 Todo 吸纳规则 v1
+4. 定义 follow-up 与 chain 生成规则 v1
+5. 再视情况把 subagent 作为局部执行辅助接入
