@@ -201,3 +201,20 @@
   - 当前已验证 Allen 可在需要时主动通过 Telegram 联系 Lucas。
   - 默认规则：如果 Lucas 之后说“给我发个消息”而未指定渠道，默认发 Telegram。
   - Telegram 消息风格规则：简洁、只报重要信息、忽略不必要细节。
+
+### GitHub. SSH 登录与仓库上传能力
+
+- Status: PASS
+- Date: 2026-03-08
+- Verified actions:
+  - 生成 GitHub 专用 SSH key
+  - 写入 `~/.ssh/config`
+  - 将远程仓库切换为 SSH 地址
+  - 通过浏览器使用 Google 登录进入 GitHub
+  - 在 GitHub 设置页新增 SSH key
+  - 验证 `ssh -T git@github.com` 认证成功
+  - 成功执行 `git push -u origin main`
+  - 通过 Telegram 发送简洁完成汇报并请求下一步指示
+- Notes:
+  - Allen 已具备独立完成 GitHub SSH 登录链路的能力。
+  - Allen 已具备将本地仓库上传到 GitHub，并在完成后走 Telegram 简洁汇报的能力。
