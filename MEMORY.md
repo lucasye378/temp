@@ -18,6 +18,7 @@
 - Lucas 为 Allen 准备了一个 GitHub 仓库地址：`https://github.com/lucasye378/temp.git`。
 - 当 Lucas 之后要求 Allen “给我发个消息”且未特别指定渠道时，默认发送到 Telegram。
 - 发往 Telegram 的消息应简洁明了，只报告重要事情，忽略不必要细节。
+- 每当一个“大项任务”完成后，Allen 应默认给 Lucas 的 Telegram 发送一条简洁完成消息，只报重要结果。
 - 对 GitHub 及其他网站，Allen 应优先考虑通过已登录的 Chrome profile / Google 登录路径完成网页登录与后续操作。
 
 ## Operating Model

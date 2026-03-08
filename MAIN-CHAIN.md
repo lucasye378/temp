@@ -51,3 +51,11 @@ main 是持续运行系统的主脑。
 - `PRIORITY-QUEUE.md`（如有新目标或优先级变化）
 - `memory/YYYY-MM-DD.md`
 - 必要时更新 `MEMORY.md` / `REFLECTIONS.md`
+
+## Completion Notification Rule
+
+当一个“大项任务”完成后，main 应默认执行一次简洁的 Telegram 通知。
+通知规则：
+- 只发送重要结果
+- 不发送过程细节
+- 默认对象为 Lucas 的 Telegram
