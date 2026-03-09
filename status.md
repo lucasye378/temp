@@ -6,11 +6,11 @@
 - Current phase: 从“能收集任务”升级到“能压缩选择、逼出执行”
 - Current primary objective: 建立 Allen 的自我迭代系统，并让持续运行系统开始服务于真实项目探索
 - Current main task: 用真实任务跑一次持续运行系统闭环
-- Current follow-up: 基于最小样例任务，产出第一版可交付的“最小决策包”，而不是停留在样例定义层
+- Current follow-up: 复盘这次真实闭环样例，判断 v1 系统在哪些地方顺手、哪些地方还粗糙，并决定是否将该真实任务视为闭环完成
 - Follow-up mode: cron
-- Chain count: 4 / 10
-- Last completed unit: 完成“第一轮研究 / 决策包服务”的最小样例任务定义
-- Last result: 真实闭环任务已从‘选方向’推进到‘定义具体样例任务’，下一步应进入样例交付物产出
+- Chain count: 5 / 10
+- Last completed unit: 产出第一版最小决策包交付物
+- Last result: 真实任务已从‘选方向’推进到‘形成可交付样例’，v1 系统已被用于承载一次真实产出
 - Recovery status: not-needed
 
 ## Dispatch Snapshot
