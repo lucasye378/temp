@@ -6,11 +6,11 @@
 - Current phase: 从“能收集任务”升级到“能压缩选择、逼出执行”
 - Current primary objective: 建立 Allen 的自我迭代系统，并让持续运行系统开始服务于真实项目探索
 - Current main task: 建立 Allen 的自我迭代系统 v1
-- Current follow-up: 启动“自我迭代系统 v1”的最小构成设计，并定义第一条真实日常流程
+- Current follow-up: 将“自我迭代系统 v1”的最小构成落为可用文件，并准备选定第一条真实日常流程
 - Follow-up mode: direct
-- Chain count: 4 / 10
-- Last completed unit: 完成 priority queue 清洗，引入执行闸门与状态分流
-- Last result: 系统已从“会收集任务”升级到“会压缩选择、保留唯一 active 项”阶段
+- Chain count: 5 / 10
+- Last completed unit: 完成启动前整理（push → md 整理 → push）并正式进入 active 主任务
+- Last result: 主链已进入真实工作阶段，不再停留在纯架构讨论
 - Recovery status: not-needed
 
 ## Dispatch Snapshot
