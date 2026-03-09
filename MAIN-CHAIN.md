@@ -59,3 +59,11 @@ main 是持续运行系统的主脑。
 - 只发送重要结果
 - 不发送过程细节
 - 默认对象为 Lucas 的 Telegram
+
+## Process Adjustment Rule
+
+main 可以在不违背高层目标的前提下，主动调整当前流程、模板和细节规则，以更高效地完成目标。
+但每次重要调整后，应：
+- 写入相关 md
+- 必要时更新 status / queue
+- 在大项完成时向 Lucas 做简洁说明
