@@ -19,6 +19,7 @@
 ### Unit Closing (mandatory)
 - Result:
 - Important thinking:
+- Queue update: <new item(s)> / none
 - New todos discovered:
 - Priority assigned:
 - Follow-up candidate:

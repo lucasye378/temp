@@ -59,3 +59,15 @@
   - 如果没有最低闭环标准，系统会再次退化成“知道应该反思”，但没有真正留下痕迹。
 - Rule:
   - 从现在开始，主链运行单元结束时，默认检查是否留下了结果、重要思考、queue 更新和 follow-up；若缺失，则该单元不算完成。
+
+### 2026-03-08 — Four-part closing usability check
+
+- Situation: Allen 用一次真实持续工作单元，测试“结果 / 思考 / queue 更新 / follow-up”四件套是否足够顺手。
+- What happened:
+  - 四件套本身足够小，适合作为最小闭环标准。
+  - 当前最大不顺手点不是四件套本身，而是：缺少一个显式的“本单元没有新增 queue 项”记录方式，容易让 closing 看起来像漏项。
+- Improvement:
+  - 将 queue 更新理解为“有新增则记录新增；无新增则明确写 `queue update: none`”。
+  - 这样 closing 不会因为“没有新目标”而变得模糊。
+- Rule:
+  - 以后每次真实 closing 时，queue 更新字段都必须显式填写：新增内容或 `none`，不能留空。
