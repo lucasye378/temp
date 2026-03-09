@@ -84,6 +84,17 @@
 - Rule:
   - 当 active 主任务已经达到最小可用标准时，应主动触发 reorg，把它转为“完成初始版 / 后续迭代”，并从 queue 中选择下一主任务。
 
+### 2026-03-09 — Waiting state vs maintenance state
+
+- Situation: 三条服务线都已进入 ready-to-send，但没有明确对象；Lucas 又明确要求在继续找对象前，先完成 GitHub 提交、今日反思，以及在合适时机开启新 session 清理 context。
+- What I learned:
+  - waiting-for-target 不是永远什么都不做；当出现明确的 maintenance 指令时，主链应临时切到维护执行态，而不是继续把“等待”当作唯一 active。
+  - 日常维护如果不显式进入状态文件，就很容易再次变成口头计划，最后没有真正完成。
+  - 当前这类 maintenance 单元的价值，不在产出新项目文档，而在清理工作面、保住可恢复性、减少上下文继续膨胀。
+- Rule:
+  - 当 Lucas 明确把维护事项提到当前优先级前面时，main 应立即把 active 切到 maintenance 单元，并在完成后再回到 waiting / ready pool。
+  - maintenance 单元也必须遵守同样的闭环：状态更新、结果记录、反思落盘、再挂 follow-up。
+
 ### 2026-03-08 — Real-task closure test review
 
 - Situation: Allen 用“最小决策包样例”来检验持续运行系统 v1 是否能承载一次真实任务闭环。

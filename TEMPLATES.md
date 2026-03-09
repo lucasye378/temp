@@ -24,6 +24,8 @@
 - Priority assigned:
 - Follow-up candidate:
 - Continue mode: cron / reorg
+- Next cron basis time checked: yes / no
+- Next cron computed programmatically: yes / no
 - Next cron: scheduled / none
 - Chain count update:
 - Is this a major task completion: yes / no

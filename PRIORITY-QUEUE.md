@@ -99,42 +99,66 @@
 
 #### 3. 决策包服务 v1 基础交付层建设
 - Priority: P1
-- Status: completed-foundation-v1
-- Output: 一套可复用的决策包骨架、变量位、判断栏位与验证标准
+- Status: completed-send-ready-v1
+- Output: 一套已具备“等待明确对象后即可外发”的决策包真实反馈验证准备包
 - Completed scope:
   - 已完成首个外部化验证场景定义：`DECISION-PACK-VALIDATION-SCENARIO-V1.md`
   - 已完成首个真实样例交付物：`AI-TOOLS-DECISION-PACK-SAMPLE-V1.md`
   - 已完成可复用模板：`DECISION-PACK-TEMPLATE-V1.md`
-- Next action: 在 reorg 中决定下一阶段是优先做“验证机制 / 对外包装”，还是切换到近邻方向继续项目探索
+  - 已完成发送计划：`DECISION-PACK-FEEDBACK-SEND-PLAN-V1.md`
+  - 已完成对象筛选标准：`DECISION-PACK-TARGET-FILTER-V1.md`
+  - 已完成对象来源类型与首条发送文案骨架：`DECISION-PACK-TARGET-SOURCE-AND-MESSAGE-V1.md`
+- Next action: 等待明确对象出现，或得到授权指定对象后，执行 1 个对象的真实反馈验证
 - Time size: medium
-- Reason: 决策包服务的基础交付层已经初步成型，不应在不 reorg 的情况下继续直跑
+- Reason: 决策包服务当前已不缺发送方案，而是缺明确对象；因此应退出 active，保持 ready-to-send 状态
 
-### NEEDS-CLARIFICATION
+### READY
 
-#### 4. 主动预约短会议（例如 15 分钟）
+#### 4. 发展金融市场理解能力
 - Priority: P2
-- Status: needs-clarification
-- Missing clarity: 触发标准未定义（固定频率 vs 事件触发）
-- Why it matters: 这会成为 Lucas 帮助 Allen 调整方向的重要机制
+- Status: completed-phase-shift-v1
+- Output: 已完成从“金融理解层”到“金融相关项目切入点”的阶段切换，并产出“财经报道拆解服务”最小包装包
+- Completed scope:
+  - 已完成 `FINANCE-NEXT-DIRECTION-DECISION-V1.md`
+  - 已完成 `FINANCE-PROJECT-ENTRY-OPTIONS-V1.md`
+  - 已完成 `FINANCE-REPORT-SERVICE-VALIDATION-SCENARIO-V1.md`
+  - 已完成 `FINANCE-REPORT-SERVICE-SAMPLE-V1.md`
+  - 已完成 `FINANCE-REPORT-SERVICE-PAGE-V1.md`
+  - 已完成 `FINANCE-REPORT-SERVICE-BOUNDARY-PAGE-V1.md`
+  - 已完成 `FINANCE-REPORT-SERVICE-SUMMARY-V1.md`
+- Next action: 后续若继续这条线，应优先做真实反馈验证，而不是继续补理解层样例
+- Why it matters: 属于现实能力成长向项目化方向迈进的一次有效转段
 
-#### 5. 发展金融市场理解能力
+#### 5. 主动预约短会议机制 v1
 - Priority: P2
-- Status: needs-clarification
-- Missing clarity: 当前阶段目标是理解市场，还是寻找具体项目切入点？
-- Why it matters: 属于现实能力成长的一部分，但不应抢占当前主线
-
-### BLOCKED
+- Status: completed-minimum-v1
+- Output: 一套可直接调用的 trigger / non-trigger / action rules
+- Completed scope:
+  - 已完成 `MEETING-MECHANISM-V1.md`
+  - 已完成 `MEETING-TRIGGER-RULES-V1.md`
+  - 已完成 `MEETING-MECHANISM-SUMMARY-V1.md`
+- Next action: 在真实阻塞场景中直接调用，而不是继续抽象打磨
+- Time size: small
+- Reason: 机制层已经够用，不应继续占住澄清位
 
 #### 6. 定义 hourly recovery cron 恢复顺序 v1
 - Priority: P2
-- Status: blocked
-- Blocker: 需要先通过一次真实主链闭环，才能更准确设计恢复顺序
-- Why it matters: 属于恢复层关键协议，但现在先做会偏抽象
+- Status: completed-minimum-v1
+- Output: 一套 hourly recovery cron 可直接遵循的最小恢复顺序
+- Completed scope:
+  - 已完成 `RECOVERY-ORDER-V1.md`
+  - 已把恢复顺序收敛为：读状态 → 判断恢复类型 → 检查旧 active 是否仍有效 → continuation / reorg → 收口 → 再挂 short follow-up
+- Next action: 在后续真实 recovery cron 中逐步采用并继续修正
+- Why it matters: 属于恢复层关键协议
 
 #### 7. 定义 follow-up cron payload 结构 v1
 - Priority: P2
-- Status: blocked
-- Blocker: 需要结合真实主链运行样本才能收敛出好结构
+- Status: completed-minimum-v1
+- Output: 一套主链短 follow-up cron 可直接复用的最小 payload 字段结构
+- Completed scope:
+  - 已完成 `FOLLOW-UP-CRON-PAYLOAD-STRUCTURE-V1.md`
+  - 已把 payload 收敛为 `wake_intent`、`active_task`、`next_unit`、`chain_state` 与可选 `recent_result`
+- Next action: 在后续真实 follow-up cron 中逐步采用并继续修正
 - Why it matters: 是 cron 主驱动协议的重要组成部分
 
 ### INCUBATING
@@ -175,9 +199,9 @@ main 每次被唤醒后，按下列顺序选择任务：
 
 ## Current Decision
 
-- Active task: 发起“决策包服务”首轮真实评审并获取反馈
-- Ready queue next: 对外包装 v1
-- Why: 既然首个真实验证单元已经定义，下一步最关键的是拿到第一轮真实反馈，而不是继续留在设计层
+- Active task: 日常维护单元：GitHub 提交、今日反思、session 重开准备
+- Ready queue next: 决策包服务（优先级最高；已具备等待明确对象后即可外发的条件）
+- Why: Lucas 已明确要求在继续对象获取前先完成日常维护，因此当前 active 应临时切到 maintenance；维护完成后再回到 waiting-for-target / opportunity-capture 状态
 
 ## Open Questions
 

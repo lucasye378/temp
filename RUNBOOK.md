@@ -15,7 +15,9 @@
 7. Close the unit using `TEMPLATES.md`
 8. Update state and queue
 9. Select the next running unit
-10. Schedule the next follow-up cron
+10. Get the current local time
+11. Compute the short follow-up target time programmatically
+12. Schedule the next follow-up cron
 
 ## Goal
 

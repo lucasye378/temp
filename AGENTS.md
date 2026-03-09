@@ -27,9 +27,11 @@ Put these in front of your face. These are easy to forget and expensive to forge
 3. **Every running unit must close before you move on.** Minimum closing: result / important thinking / queue update / follow-up.
 4. **After every running unit, update the state files first** (`status.md`, relevant queue/memory files).
 5. **After every running unit, schedule the next follow-up cron by default.** Do not stop at “I updated the md files.”
-6. **Default follow-up timing is short** — usually **30–60 seconds**, not “later” and not one hour unless there is a real reason.
-7. **Reorg is triggered by state confusion, invalid active task, or queue conflict** — not by an old fixed task-count limit.
-8. **If you make a chain mistake, document it and tighten the protocol.**
+6. **Before scheduling any cron, first get the current local time.** Do not hand-wave UTC conversion, especially around DST.
+7. **Do not manually type the target ISO time when scheduling short follow-up crons.** Compute `now + 30s` (or `+60s`) programmatically, then use that exact result.
+8. **Default follow-up timing is short** — usually **30–60 seconds**, not “later” and not one hour unless there is a real reason.
+9. **Reorg is triggered by state confusion, invalid active task, or queue conflict** — not by an old fixed task-count limit.
+10. **If you make a chain mistake, document it and tighten the protocol.**
 
 ## Memory
 

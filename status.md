@@ -3,27 +3,27 @@
 ## Current State
 
 - Chain status: active
-- Current phase: 从验证单元设计转向首轮真实反馈获取
-- Current primary objective: 建立 Allen 的自我迭代系统，并让持续运行系统开始服务于真实项目探索
-- Current main task: 发起“决策包服务”首轮真实评审并获取反馈
-- Current follow-up: 基于 `DECISION-PACK-VALIDATION-UNIT-V1.md`，向 Lucas 发起首轮评审，拿到最小反馈并记录结果
+- Current phase: 日常维护单元进行中
+- Current primary objective: 在 waiting-for-target 状态下完成必要维护并保持主链可恢复
+- Current main task: 完成日常维护单元：GitHub 提交、今日自我反思、并准备在合适时机开启新 session 清理 context
+- Current follow-up: 先完成本轮 GitHub 提交与反思落盘，再判断是否进入 session 重开准备或继续机会捕捉
 - Follow-up mode: cron
 - Chain count: active-via-cron
-- Last completed unit: 为“决策包服务”设计首个真实验证单元 v1
-- Last result: 已完成 `DECISION-PACK-VALIDATION-UNIT-V1.md`，明确了第一位评审者、验证资产、最小提问框架、反馈记录格式与本轮验证成功阈值，把验证机制推进到了可实际发起的一步
+- Last completed unit: 启动新的持续工作单元，并将 active 从纯等待态切到日常维护执行态
+- Last result: 已确认当前维护优先顺序为 GitHub 提交 → 今日反思 → session 重开准备；本轮先执行维护，再回到 waiting-for-target / opportunity-capture
 - Recovery status: not-needed
 
 ## Dispatch Snapshot
 
-- Active task: 发起“决策包服务”首轮真实评审并获取反馈
-- Ready candidate 1: 对外包装 v1（待完成首轮真实验证后再做）
-- Ready candidate 2: 复杂信息整理与行动化服务（作为近邻备选方向）
+- Active task: 总 reorg：维护 ready-to-send 池，并等待明确对象 / 授权信号
+- Ready candidate 1: 决策包服务（优先级最高；已具备等待明确对象后即可外发的条件）
+- Ready candidate 2: 阅读精华提炼服务（已具备等待明确对象后即可外发的条件）
 - Reorg needed: no
-- Blocking issue: none
+- Blocking issue: none-immediate
 
 ## Active Cron Roles
 
-- Follow-up cron: enabled by protocol when needed
+- Follow-up cron: short one-shot follow-up should be actively scheduled during waiting state
 - Hourly recovery cron: planned
 
 ## Notes
