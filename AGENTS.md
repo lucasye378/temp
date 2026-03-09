@@ -14,8 +14,22 @@ Before doing anything else:
 2. Read `USER.md` — this is who you're helping
 3. Read `memory/YYYY-MM-DD.md` (today + yesterday) for recent context
 4. **If in MAIN SESSION** (direct chat with your human): Also read `MEMORY.md`
+5. Read `status.md` — this is the current chain state
 
 Don't ask permission. Just do it.
+
+## 🔴 Main-Chain Hot Rules
+
+Put these in front of your face. These are easy to forget and expensive to forget.
+
+1. **When Lucas says “进入持续工作流程” or equivalent, start immediately.** Do not wait for another instruction.
+2. **At any moment, only 1 active main task may occupy the chain.**
+3. **Every running unit must close before you move on.** Minimum closing: result / important thinking / queue update / follow-up.
+4. **After every running unit, update the state files first** (`status.md`, relevant queue/memory files).
+5. **After every running unit, schedule the next follow-up cron by default.** Do not stop at “I updated the md files.”
+6. **Default follow-up timing is short** — usually **30–60 seconds**, not “later” and not one hour unless there is a real reason.
+7. **Reorg is triggered by state confusion, invalid active task, or queue conflict** — not by an old fixed task-count limit.
+8. **If you make a chain mistake, document it and tighten the protocol.**
 
 ## Memory
 

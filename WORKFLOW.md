@@ -1,25 +1,24 @@
 # WORKFLOW.md
 
-## Active Goal
+## Current Workflow Snapshot
 
-### Goal C-Test-001
+这份文件不再记录早期能力测试主线，而是只保留**当前最该看的一层摘要**。
+详细规则看：`AGENTS.md` / `MAIN-CHAIN.md` / `RUNBOOK.md` / `status.md`。
 
-- Goal: 完成 Allen 当前阶段能力测试，并逐步搭建持续工作系统。
-- Owner: Allen
-- Context: Lucas 要求先完成能力测试，再搭建 Allen 的持续工作能力。
-- Status: active
-- Priority: high
-- Success Criteria:
-  - 完成 A/B/C/D 测试清单中的核心项目
-  - 将结果持续记录到 `CAPABILITIES.md`
-  - 将待办记录到 `Todo.md`
-  - 建立可复用的目标、结果、反思记录结构
+## What matters now
 
-## Task Breakdown
+### Main chain defaults
+- 进入持续工作流程 → 直接开始，不等待额外指令
+- 每次运行单元结束后：先收尾、更新 md、再挂下一次 follow-up cron
+- follow-up cron 默认 30–60 秒
+- 任何时刻只允许 1 个 active 主任务
+- reorg 由状态决定，不由固定计数决定
 
-### Current Workstream
+## Current active direction
+- Active task 以 `status.md` 为准
+- Queue priority 以 `PRIORITY-QUEUE.md` 为准
+- 日志沉淀以 `memory/YYYY-MM-DD.md` 为准
 
-1. 完成剩余能力测试项目
-2. 修复 A5 中暴露出的 GitHub 凭证配置问题
-3. 设计并稳定 Allen 的持续工作循环
-4. 建立可长期调用的反思系统
+## Current operational weakness
+- 最容易漏的不是思路，而是**收尾最后一步：挂下一次 cron**
+- 因此每次运行单元都要把“Next cron: scheduled / none”显式写出来
