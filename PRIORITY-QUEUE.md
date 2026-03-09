@@ -87,19 +87,19 @@
 
 #### 2. 用真实任务跑一次持续运行系统闭环
 - Priority: P1
-- Status: ready
+- Status: active
 - Output: 一次真实任务闭环记录 + 系统修正点
-- Next action: 在 active 任务完成后，选一个真实任务用主链跑一遍
+- Next action: 选择一个会持续几步推进、会产生记录/决策/复盘的真实任务，并用 v1 系统完整承载它
 - Time size: medium
-- Reason: 结构已经足够，接下来需要承压验证
+- Reason: 这是当前最能检验自我迭代系统 v1 是否真正可工作的主任务
 
 #### 3. 建立项目方向脑暴与筛选机制 v1
 - Priority: P1
 - Status: ready
 - Output: 一版项目候选清单 + 第一轮筛选标准
-- Next action: 在自我迭代系统有最小版本后，正式收口项目探索路径
+- Next action: 在真实任务闭环跑通后，正式收口项目探索路径
 - Time size: medium
-- Reason: Goal 2 需要尽快进入结构化探索，但不应先于 Goal 1 的基础系统
+- Reason: Goal 2 需要尽快进入结构化探索，但应让位于对 v1 系统的实战验证
 
 ### NEEDS-CLARIFICATION
 
@@ -167,9 +167,9 @@ main 每次被唤醒后，按下列顺序选择任务：
 
 ## Current Decision
 
-- Active task: none (pending reorg)
-- Ready queue next: 用真实任务跑一次持续运行系统闭环
-- Why: 自我迭代系统 v1 已达到初始可用标准；当前应先进行一次主链重整，再从 ready 中选择下一个 active 主任务
+- Active task: 用真实任务跑一次持续运行系统闭环
+- Ready queue next: 建立项目方向脑暴与筛选机制 v1
+- Why: 自我迭代系统 v1 已达到初始可用标准；下一步最值得做的是用真实任务验证它是否真能承压工作
 
 ## Open Questions
 
