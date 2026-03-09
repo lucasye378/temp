@@ -23,7 +23,8 @@
 - New todos discovered:
 - Priority assigned:
 - Follow-up candidate:
-- Continue mode: direct / cron / reorg
+- Continue mode: cron / reorg
+- Next cron: scheduled / none
 - Chain count update:
 - Is this a major task completion: yes / no
 - If yes, send concise Telegram completion message: done / pending

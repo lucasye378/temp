@@ -37,7 +37,7 @@
 2. main 在每个运行单元结束后，必须检查 priority queue。
 3. 不是所有高价值项都能立刻执行；所有候选项都要先过“执行闸门”。
 4. 每个大项任务完成后，应给 Lucas 的 Telegram 发一条简洁完成消息。
-5. 连续子任务达到 10 个时，必须进入 reorg，而不是继续直跑。
+5. 每个运行单元结束后，默认都应设置下一次 follow-up cron，除非任务已明确结束或存在外部等待边界。
 6. 主链上任何时刻只允许 **1 个 active 主任务**；最多允许 1–3 个 ready 候选，其余应留在 queue 中等待。
 
 ## Execution Gate
@@ -87,19 +87,27 @@
 
 #### 2. 用真实任务跑一次持续运行系统闭环
 - Priority: P1
-- Status: active
+- Status: completed-validation-v1
 - Output: 一次真实任务闭环记录 + 系统修正点
-- Next action: 选择一个会持续几步推进、会产生记录/决策/复盘的真实任务，并用 v1 系统完整承载它
+- Completed scope:
+  - 已完成从候选清单 → 方向选择 → 样例定义 → 最小决策包交付
+  - 已完成对 v1 系统顺手点 / 粗糙点的复盘
+  - 已确认该任务可视为“验证闭环完成”
+- Next action: 将复盘得到的修正点带入后续主链，不再继续以本任务占住 active 位
 - Time size: medium
-- Reason: 这是当前最能检验自我迭代系统 v1 是否真正可工作的主任务
+- Reason: 它已经完成了自己的验证职责，不应继续延长
 
-#### 3. 建立项目方向脑暴与筛选机制 v1
+#### 3. 决策包服务 v1 基础交付层建设
 - Priority: P1
-- Status: ready
-- Output: 一版项目候选清单 + 第一轮筛选标准
-- Next action: 在真实任务闭环跑通后，正式收口项目探索路径
+- Status: completed-foundation-v1
+- Output: 一套可复用的决策包骨架、变量位、判断栏位与验证标准
+- Completed scope:
+  - 已完成首个外部化验证场景定义：`DECISION-PACK-VALIDATION-SCENARIO-V1.md`
+  - 已完成首个真实样例交付物：`AI-TOOLS-DECISION-PACK-SAMPLE-V1.md`
+  - 已完成可复用模板：`DECISION-PACK-TEMPLATE-V1.md`
+- Next action: 在 reorg 中决定下一阶段是优先做“验证机制 / 对外包装”，还是切换到近邻方向继续项目探索
 - Time size: medium
-- Reason: Goal 2 需要尽快进入结构化探索，但应让位于对 v1 系统的实战验证
+- Reason: 决策包服务的基础交付层已经初步成型，不应在不 reorg 的情况下继续直跑
 
 ### NEEDS-CLARIFICATION
 
@@ -167,9 +175,9 @@ main 每次被唤醒后，按下列顺序选择任务：
 
 ## Current Decision
 
-- Active task: 用真实任务跑一次持续运行系统闭环
-- Ready queue next: 建立项目方向脑暴与筛选机制 v1
-- Why: 自我迭代系统 v1 已达到初始可用标准；下一步最值得做的是用真实任务验证它是否真能承压工作
+- Active task: 发起“决策包服务”首轮真实评审并获取反馈
+- Ready queue next: 对外包装 v1
+- Why: 既然首个真实验证单元已经定义，下一步最关键的是拿到第一轮真实反馈，而不是继续留在设计层
 
 ## Open Questions
 

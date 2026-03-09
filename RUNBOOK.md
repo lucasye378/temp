@@ -14,7 +14,8 @@
 6. Execute one running unit
 7. Close the unit using `TEMPLATES.md`
 8. Update state and queue
-9. Decide direct continue vs cron continue
+9. Select the next running unit
+10. Schedule the next follow-up cron
 
 ## Goal
 

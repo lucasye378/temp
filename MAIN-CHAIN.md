@@ -20,11 +20,9 @@ main 是持续运行系统的主脑。
 3. 单元结束后，必须完成收尾
 4. 收尾后检查 priority queue
 5. 在 follow-up 与 priority queue 之间做统一调度
-6. 决定：
-   - direct continue
-   - follow-up cron
-   - reorg
+6. 决定下一运行单元主任务
 7. 更新 `status.md`
+8. 设置下一次 follow-up cron（默认必须）
 
 ## Task Choice Rule
 
@@ -39,10 +37,10 @@ main 是持续运行系统的主脑。
 - follow-up 已不再是当前最优动作
 
 ### Reorg wins when:
-- 连续子任务达到上限
 - 当前状态混乱
 - follow-up 与 queue 冲突过多
 - main 需要先恢复方位感
+- 现有 active 已失效，且需要重新编排主线
 
 ## Required Artifacts
 
