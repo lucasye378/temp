@@ -72,11 +72,16 @@
 
 #### 1. 建立 Allen 的自我迭代系统 v1
 - Priority: P1
-- Status: active
+- Status: completed-initial-v1
 - Output: 一套可日用的错误记录、复盘、思考记录、经验沉淀结构
-- Next action: 定义“自我迭代系统”的最小构成，并选一个真实日常流程先跑通
+- Completed scope:
+  - 最小模块已定义
+  - 第一条真实日常流程已定义
+  - 四件套 closing 已验证并修正
+  - active 主任务保护规则与恢复锚点已定义
+- Next action: 在后续真实任务与每日运行中继续迭代，不再作为当前 active 主任务占住主链
 - Time size: medium
-- Why now: 这是 Goal 1 的核心发动机，也是后续项目探索与持续运转的基础
+- Why it mattered: 这是 Goal 1 的核心发动机，也是后续项目探索与持续运转的基础
 
 ### READY
 
@@ -162,9 +167,9 @@ main 每次被唤醒后，按下列顺序选择任务：
 
 ## Current Decision
 
-- Active task: 建立 Allen 的自我迭代系统 v1
+- Active task: none (pending reorg)
 - Ready queue next: 用真实任务跑一次持续运行系统闭环
-- Why: 先把 Goal 1 的最小成长发动机建起来，再用它去承压跑主链
+- Why: 自我迭代系统 v1 已达到初始可用标准；当前应先进行一次主链重整，再从 ready 中选择下一个 active 主任务
 
 ## Open Questions
 
