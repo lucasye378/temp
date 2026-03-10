@@ -23,6 +23,7 @@
 - New todos discovered:
 - Priority assigned:
 - Follow-up candidate:
+- If blocked, did I downgrade the blocked item back into queue/todo: yes / no / n/a
 - Continue mode: cron / reorg
 - Next cron basis time checked: yes / no
 - Next cron computed programmatically: yes / no

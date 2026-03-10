@@ -95,6 +95,19 @@
   - 当 Lucas 明确把维护事项提到当前优先级前面时，main 应立即把 active 切到 maintenance 单元，并在完成后再回到 waiting / ready pool。
   - maintenance 单元也必须遵守同样的闭环：状态更新、结果记录、反思落盘、再挂 follow-up。
 
+### 2026-03-09 — No waiting-target state correction
+
+- Situation: Lucas 明确纠偏：不存在“等待目标状态”；任何时候只要 main 闲置，就应该从 `Todo.md` / `PRIORITY-QUEUE.md` 里主动找任务继续完成。
+- What I got wrong:
+  - 我把“waiting-for-target / opportunity-capture”错误地提升成了一个可持续 active 状态。
+  - 这会让主链看起来在运转，但本质上是在用等待代替执行。
+- What changed:
+  - 已将 `MAIN-CHAIN.md` 升级到 v2，明确规定：外部阻塞项只能降回 queue，不能继续占住 active。
+  - 已同步更新 `RUNBOOK.md`、`CHAIN-RULES.md`、`TEMPLATES.md`、`Todo.md`，把“blocked item 降回 queue，再立刻选新 active”写成显式动作。
+- Rule:
+  - 以后只允许“blocked item”存在，不允许“waiting state”成为 main 的当前主任务。
+  - 一旦发现自己在维护等待态，就必须立刻 reorg，并从 queue/todo 里选出新的唯一 active 任务。
+
 ### 2026-03-08 — Real-task closure test review
 
 - Situation: Allen 用“最小决策包样例”来检验持续运行系统 v1 是否能承载一次真实任务闭环。

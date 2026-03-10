@@ -199,9 +199,9 @@ main 每次被唤醒后，按下列顺序选择任务：
 
 ## Current Decision
 
-- Active task: 日常维护单元：GitHub 提交、今日反思、session 重开准备
-- Ready queue next: 决策包服务（优先级最高；已具备等待明确对象后即可外发的条件）
-- Why: Lucas 已明确要求在继续对象获取前先完成日常维护，因此当前 active 应临时切到 maintenance；维护完成后再回到 waiting-for-target / opportunity-capture 状态
+- Active task: 定义 follow-up 与 chain 生成规则 v1
+- Ready queue next: 每日完成一次 GitHub push
+- Why: Todo 吸纳规则已经完成；当前剩余最关键的协议空缺，是如何在每个单元末尾稳定选出 next active 并真正续上链条，尤其要避免“口头决定下一步，但没有形成稳定链”的老错误
 
 ## Open Questions
 

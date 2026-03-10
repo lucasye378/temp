@@ -3,14 +3,14 @@
 ## Current State
 
 - Chain status: active
-- Current phase: 日常维护单元进行中
-- Current primary objective: 在 waiting-for-target 状态下完成必要维护并保持主链可恢复
-- Current main task: 完成日常维护单元：GitHub 提交、今日自我反思、并准备在合适时机开启新 session 清理 context
-- Current follow-up: 先完成本轮 GitHub 提交与反思落盘，再判断是否进入 session 重开准备或继续机会捕捉
+- Current phase: 主链规则纠偏进行中
+- Current primary objective: 修正“waiting-for-target”误设，并把闲置即转 queue/todo 执行写入主链协议
+- Current main task: 定义 follow-up 与 chain 生成规则 v1
+- Current follow-up: 本轮已完成 Todo 吸纳规则 v1；下一轮继续把 follow-up / chain 选择逻辑写硬，减少“知道该续链但没稳定接上”的错误
 - Follow-up mode: cron
 - Chain count: active-via-cron
-- Last completed unit: 启动新的持续工作单元，并将 active 从纯等待态切到日常维护执行态
-- Last result: 已确认当前维护优先顺序为 GitHub 提交 → 今日反思 → session 重开准备；本轮先执行维护，再回到 waiting-for-target / opportunity-capture
+- Last completed unit: 完成 Todo 吸纳规则 v1
+- Last result: 已产出 `TODO-CAPTURE-RULES-V1.md`，明确长期待办 vs 调度项的分流规则、必须入池的触发条件，以及 Todo capture 的失败定义；当前 active 已切到 `定义 follow-up 与 chain 生成规则 v1`
 - Recovery status: not-needed
 
 ## Dispatch Snapshot

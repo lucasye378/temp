@@ -10,14 +10,16 @@
    - queue preemption
    - recovery
    - reorg
-5. Select one main task
-6. Execute one running unit
-7. Close the unit using `TEMPLATES.md`
-8. Update state and queue
-9. Select the next running unit
-10. Get the current local time
-11. Compute the short follow-up target time programmatically
-12. Schedule the next follow-up cron
+   - external-blocked active that must be downgraded
+5. If the old active is externally blocked, downgrade it back into queue/todo instead of keeping a waiting state
+6. Select one executable main task
+7. Execute one running unit
+8. Close the unit using `TEMPLATES.md`
+9. Update state and queue
+10. Select the next running unit
+11. Get the current local time
+12. Compute the short follow-up target time programmatically
+13. Schedule the next follow-up cron
 
 ## Goal
 

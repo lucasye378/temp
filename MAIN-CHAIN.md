@@ -1,6 +1,6 @@
 # MAIN-CHAIN.md
 
-## Main Chain Protocol v1
+## Main Chain Protocol v2
 
 ### Principle
 
@@ -13,14 +13,28 @@ main 是持续运行系统的主脑。
 - 选择下一任务
 - 在链条中持续记录、反思、纠偏
 
+### Hot rule — 不存在“等待目标状态”
+
+main 可以遇到外部阻塞，但**不能把“等待”本身当成长期 active 主任务**。
+如果某条线因为缺对象、缺授权、缺外部反馈而暂时无法继续：
+- 把该线降回 queue 中的合适 bucket
+- 明确它缺什么
+- 然后**立刻**从 `Todo.md` 或 `PRIORITY-QUEUE.md` 里选择下一个唯一 active 任务继续推进
+
+换句话说：
+- 可以有 blocked item
+- 可以有 ready-to-send item
+- 可以有需要机会捕捉的 item
+- **但 main 自身不能闲置，也不能停在“waiting-for-target”这种伪 active 状态里**
+
 ## Core Flow
 
 1. 执行当前运行单元
 2. 在执行与思考中发现新目标时，先写入 priority queue
 3. 单元结束后，必须完成收尾
-4. 收尾后检查 priority queue
-5. 在 follow-up 与 priority queue 之间做统一调度
-6. 决定下一运行单元主任务
+4. 收尾后检查 priority queue 与 Todo
+5. 如果当前 active 被外部边界卡住，则立即把它降回 queue，而不是维持等待态
+6. 从可执行项中重新选出下一个唯一 active 主任务
 7. 更新 `status.md`
 8. 设置下一次 follow-up cron（默认必须）
 
